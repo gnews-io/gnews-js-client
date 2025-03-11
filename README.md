@@ -1,4 +1,4 @@
-# GNews.js Client
+# GNews.io JS Client
 
 A simple JavaScript wrapper for the [GNews.io](https://gnews.io) API. This library provides a clean interface for fetching news articles.
 
