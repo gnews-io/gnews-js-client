@@ -1,27 +1,35 @@
 {
-  "name": "gnews-js-api-client",
+  "name": "@gnews-io/gnews-js-client",
   "version": "1.0.0",
-  "description": "A JavaScript client for the GNews.io API",
-  "main": "index.js",
+  "description": "JavaScript client for GNews API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gnews-io/js-api-client.git"
+    "url": "git+https://github.com/gnews-io/gnews-js-client.git"
   },
   "keywords": [
     "gnews",
-    "api",
     "news",
-    "client",
-    "javascript"
+    "api",
+    "client"
   ],
-  "author": "Jules",
+  "author": "gnews-io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gnews-io/js-api-client/issues"
+    "url": "https://github.com/gnews-io/gnews-js-client/issues"
   },
-  "homepage": "https://github.com/gnews-io/js-api-client#readme",
-  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
+  "homepage": "https://github.com/gnews-io/gnews-js-client#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "typescript": "^5.8.2"
+  }
 }
