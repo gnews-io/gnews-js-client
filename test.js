@@ -50,11 +50,10 @@ async function runTests() {
   // Test 2: Search
   try {
     console.log('\n🔍 Testing search() method with query "technology"...');
-    const search = await gnews.search({
-      q: 'technology',
+    const search = await gnews.search('technology', {
       lang: 'en',
       max: 2,
-      from: formattedDate // Use today's date
+      from: formattedDate
     });
 
     if (search && search.articles && search.articles.length > 0) {

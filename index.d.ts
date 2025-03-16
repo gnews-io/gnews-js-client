@@ -5,11 +5,11 @@ declare class GNews {
    * @param options - Additional configuration options
    */
   constructor(
-    apiKey: string,
-    options?: {
-      version?: string;
-      maxWait?: number;
-    }
+      apiKey: string,
+      options?: {
+        version?: string;
+        maxWait?: number;
+      }
   );
 
   /**
@@ -25,10 +25,10 @@ declare class GNews {
 
   /**
    * Search for news articles
+   * @param q - Search query
    * @param params - Query parameters
    */
-  search(params: {
-    q: string;
+  search(q: string, params: {
     lang?: string;
     country?: string;
     max?: number;
@@ -37,17 +37,6 @@ declare class GNews {
     from?: string;
     to?: string;
     sortby?: 'relevance' | 'date' | 'publish-time';
-  }): Promise<GNewsResponse>;
-
-  /**
-   * Get breaking news
-   * @param params - Query parameters
-   */
-  breaking(params?: {
-    lang?: string;
-    country?: string;
-    max?: number;
-    category?: string;
   }): Promise<GNewsResponse>;
 }
 

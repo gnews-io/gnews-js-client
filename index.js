@@ -77,6 +77,7 @@ class GNews {
 
   /**
    * Search for news articles
+   * @param q
    * @param {Object} params - Query parameters
    * @param {string} params.q - Search query (required)
    * @param {string} params.lang - Article language (e.g., 'en')
@@ -89,10 +90,12 @@ class GNews {
    * @param {string} params.sortby - Sort articles by (relevance, date, publish-time)
    * @returns {Promise<Object>} - Promise resolving to search response
    */
-  async search(params = {}) {
-    if (!params.q) {
+  async search(q, params = {}) {
+    if (!q) {
       throw new Error('Search query (q) is required');
     }
+    params.q = q;
+
     return this._request('/search', params);
   }
 }
