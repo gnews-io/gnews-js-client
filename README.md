@@ -5,13 +5,13 @@ A simple JavaScript wrapper for the [GNews.io](https://gnews.io) API. This libra
 ## Installation
 
 ```bash
-npm install gnews-js-client
+npm install @gnews-js-client
 ```
 
 Or with yarn:
 
 ```bash
-yarn add gnews-js-client
+yarn add @gnews-js-client
 ```
 
 ## Usage
@@ -55,8 +55,7 @@ gnews.headlines({
 
 ```javascript
 // Search for articles
-gnews.search({
-  q: 'bitcoin',  // required, search query
+gnews.search('bitcoin', {
   lang: 'en',    // optional, article language
   country: 'us', // optional, article country
   max: 10,       // optional, number of articles to return
