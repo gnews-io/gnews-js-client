@@ -93,17 +93,26 @@ class GNews {
    * @param {string} params.country - Article country (e.g., 'us')
    * @param {number} params.max - Maximum number of articles to return
    * @param {string} params.category - News category (top, world, nation, business, technology, entertainment, sports, science, health)
+   * @param {string} params.in - Where to search (title, description, content)
+   * @param {string} params.nullable - Fields that can be null
+   * @param {string} params.from - Start date in 'YYYY-MM-DD' format
+   * @param {string} params.to - End date in 'YYYY-MM-DD' format
+   * @param {number} params.page - (paid subscription) Page number for pagination
+   * @param {string} params.expand - (paid subscription) Expand articles content
    * @returns {Promise<Object>} - Promise resolving to headlines response
    */
   async headlines(params: {
     lang?: string;
     country?: string;
     max?: number;
+    category?: 'general' | 'world' | 'nation' | 'business' | 'technology' | 'entertainment' | 'sports' | 'science' | 'health';
     in?: string;
     nullable?: string;
     from?: string;
     to?: string;
     sortby?: 'relevance' | 'date' | 'publish-time';
+    page?: number;
+    expand?: string;
   }): Promise<GNewsResponse> {
     return this._request('/top-headlines', params);
   }
@@ -120,6 +129,8 @@ class GNews {
    * @param {string} params.from - Start date in 'YYYY-MM-DD' format
    * @param {string} params.to - End date in 'YYYY-MM-DD' format
    * @param {string} params.sortby - Sort articles by (relevance, date, publish-time)
+   * @param {number} params.page - (paid subscription) Page number for pagination
+   * @param {string} params.expand - (paid subscription) Expand articles content
    * @returns {Promise<Object>} - Promise resolving to search response
    */
   async search(q: string, params: {
@@ -132,6 +143,8 @@ class GNews {
     from?: string;
     to?: string;
     sortby?: 'relevance' | 'date' | 'publish-time';
+    page?: number;
+    expand?: string;
   }): Promise<GNewsResponse> {
     if (!q) {
       throw new Error('Search query (q) is required');
