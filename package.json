@@ -1,9 +1,9 @@
 {
   "name": "@gnews-io/gnews-js-client",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "JavaScript client for GNews API",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "README.md"
   ],
@@ -18,7 +18,10 @@
     "gnews",
     "news",
     "api",
-    "client"
+    "client",
+    "javascript",
+    "typescript",
+    "gnews.io"
   ],
   "author": "gnews-io",
   "license": "MIT",

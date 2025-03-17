@@ -4,7 +4,7 @@
  */
 
 // Import our library (from local code, not npm)
-const GNews = require('./index');
+const GNews = require('./dist/index');
 
 // Get API key from command line argument
 const API_KEY = process.argv[2];
@@ -44,7 +44,9 @@ async function runTests() {
       console.log('❌ FAILED: No headlines received or invalid format');
     }
   } catch (error) {
-    console.error('❌ FAILED: Headlines test failed:', error.message);
+    if (error instanceof Error) {
+      console.error('❌ FAILED: Headlines test failed:', error.message);
+    }
   }
 
   // Test 2: Search
@@ -63,8 +65,11 @@ async function runTests() {
     } else {
       console.log('❌ FAILED: No search results received or invalid format');
     }
-  } catch (error) {
-    console.error('❌ FAILED: Search test failed:', error.message);
+  }
+  catch (error) {
+    if (error instanceof Error) {
+      console.error('❌ FAILED: Search test failed:', error.message);
+    }
   }
 
   // Test 3: Error handling (invalid API key)
@@ -77,7 +82,9 @@ async function runTests() {
     });
     console.error('❌ FAILED: Error handling test failed - Should have thrown an error');
   } catch (error) {
-    console.log('✅ SUCCESS: Error handling works correctly:', error.message);
+    if (error instanceof Error) {
+      console.log('✅ SUCCESS: Error handling works correctly:', error.message);
+    }
   }
 
   // Test 4: Request parameters
@@ -99,7 +106,9 @@ async function runTests() {
       console.log('❌ FAILED: Parameter handling test failed');
     }
   } catch (error) {
-    console.error('❌ FAILED: Parameter handling test failed:', error.message);
+    if (error instanceof Error) {
+      console.error('❌ FAILED: Parameter handling test failed:', error.message);
+    }
   }
 
   console.log('\n===================================');
