@@ -5,19 +5,19 @@ A simple JavaScript wrapper for the [GNews.io](https://gnews.io) API. This libra
 ## Installation
 
 ```bash
-npm install @gnews-js-client
+npm i @gnews-io/gnews-js-client
 ```
 
 Or with yarn:
 
 ```bash
-yarn add @gnews-js-client
+yarn add @gnews-io/gnews-js-client
 ```
 
 ## Usage
 
 ```javascript
-import GNews from 'gnews-js-client';
+import GNews from '@gnews-io/gnews-js-client';
 const gnews = new GNews('YOUR_API_KEY');
 ```
 

@@ -1,3 +1,21 @@
+interface Article {
+  title: string;
+  description: string;
+  content: string;
+  url: string;
+  image: string;
+  publishedAt: string;
+  source: {
+    name: string;
+    url: string;
+  };
+}
+
+interface GNewsResponse {
+  totalArticles: number;
+  articles: Article[];
+}
+
 /**
  * GNews.io API Client Library
  * A simple wrapper for the GNews.io API
@@ -51,6 +69,7 @@ class GNews {
       const timeoutId = setTimeout(() => controller.abort(), this.maxWait);
 
       const response = await fetch(url.toString(), { signal: controller.signal });
+
       clearTimeout(timeoutId);
 
       if (!response.ok) {
@@ -58,7 +77,7 @@ class GNews {
         throw new Error(errorData.error || `HTTP Error: ${response.status}`);
       }
 
-      return await response.json();
+      return await response.json() as GNewsResponse;
     } catch (error: unknown) {
       if (error instanceof Error && error.name === 'AbortError') {
         throw new Error(`Request timed out after ${this.maxWait}ms`);
@@ -85,7 +104,7 @@ class GNews {
     from?: string;
     to?: string;
     sortby?: 'relevance' | 'date' | 'publish-time';
-  }): Promise<any> {
+  }): Promise<GNewsResponse> {
     return this._request('/top-headlines', params);
   }
 
@@ -113,7 +132,7 @@ class GNews {
     from?: string;
     to?: string;
     sortby?: 'relevance' | 'date' | 'publish-time';
-  }): Promise<any> {
+  }): Promise<GNewsResponse> {
     if (!q) {
       throw new Error('Search query (q) is required');
     }

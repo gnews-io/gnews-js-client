@@ -40,12 +40,12 @@ declare class GNews {
   }): Promise<GNewsResponse>;
 }
 
-export interface GNewsResponse {
+interface GNewsResponse {
   totalArticles: number;
   articles: Article[];
 }
 
-export interface Article {
+interface Article {
   title: string;
   description: string;
   content: string;
@@ -58,4 +58,5 @@ export interface Article {
   };
 }
 
+export { GNewsResponse, Article };
 export default GNews;
