@@ -2,6 +2,10 @@
 
 A simple JavaScript wrapper for the [GNews.io](https://gnews.io) API. This library provides a clean interface for fetching news articles.
 
+## Documentation
+
+- [GNews.io API Documentation](https://gnews.io/docs/v4#introduction)
+
 ## Installation
 
 ```bash
@@ -18,18 +22,14 @@ yarn add @gnews-io/gnews-js-client
 
 ```javascript
 import GNews from '@gnews-io/gnews-js-client';
-const gnews = new GNews('YOUR_API_KEY');
+// or
+const GNews = require('@gnews-io/gnews-js-client');
 ```
-
-## API
 
 ### Initialize
 
 ```javascript
-const gnews = new GNews('YOUR_API_KEY', {
-  version: 'v4',  // optional, defaults to 'v4'
-  maxWait: 10000, // optional, request timeout in ms, defaults to 10000
-});
+const gnews = new GNews('YOUR_API_KEY');
 ```
 
 ### Get Headlines
@@ -105,19 +105,3 @@ The library throws errors in the following cases:
 - Network errors
 - API request timeouts
 - API error responses
-
-Example error handling:
-
-```javascript
-gnews.headlines()
-  .then(response => {
-    // Handle successful response
-  })
-  .catch(error => {
-    console.error('Error fetching headlines:', error.message);
-  });
-```
-
-## License
-
-MIT
